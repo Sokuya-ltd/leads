@@ -1,0 +1,38 @@
+.footer {
+  background: var(--black);
+  padding: 2rem 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer__logo {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -0.02em;
+}
+
+.footer__logo span {
+  color: var(--orange);
+}
+
+.footer__tagline {
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.footer__copy {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.2);
+}
+
+@media (max-width: 900px) {
+  .footer {
+    padding: 2rem;
+    flex-direction: column;
+    text-align: center;
+  }
+}
