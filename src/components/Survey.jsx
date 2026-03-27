@@ -1,8 +1,8 @@
 import React, { useState, useCallback } from 'react';
 import './Survey.css';
 
-// Replace with your real endpoint (e.g. a Formspree, Airtable, or your own API)
-const SUBMIT_URL = 'https://your-api-endpoint.com/leads';
+// ⬇ Replace with your real endpoint (Formspree, Airtable API, your own backend, etc.)
+const SUBMIT_URL = 'https://phplaravel-1549794-6311949.cloudwaysapps.com/api/leads';
 
 const TOTAL = 11;
 
@@ -118,33 +118,31 @@ export default function Survey() {
       const payload = {
         submittedAt:      new Date().toISOString(),
         source:           'sukoya-leads-page',
-        name:             raw.name             || null,
-        email:            raw.email            || null,
-        location:         raw.q2               || null,
-        cookingHabit:     raw.q3               || null,
-        groceryFrequency: raw.q4               || null,
-        painPoints:       raw.q5               || null,
-        hassleScore:      raw.q6               ?? null,
-        likelihoodScore:  raw.q8               ?? null,
-        feePref:          raw.q9               || null,
-        deliveryPref:     raw.q10              || null,
+        name:             raw.name  || null,
+        email:            raw.email || null,
+        location:         raw.q2    || null,
+        cookingHabit:     raw.q3    || null,
+        groceryFrequency: raw.q4    || null,
+        painPoints:       multiSel['q5'] || [],
+        hassleScore:      raw.q6    ?? null,
+        likelihoodScore:  raw.q8    ?? null,
+        feePref:          raw.q9    || null,
+        deliveryPref:     raw.q10   || null,
       };
 
-      // Persist locally so submissions are never lost
+      // Always save locally so no submission is ever lost
       try {
         const saved = JSON.parse(localStorage.getItem('sukoya_leads') || '[]');
         saved.push(payload);
         localStorage.setItem('sukoya_leads', JSON.stringify(saved, null, 2));
       } catch (_) {}
 
-      // POST to configured endpoint
+      // Send to configured endpoint
       fetch(SUBMIT_URL, {
         method:  'POST',
         headers: { 'Content-Type': 'application/json' },
         body:    JSON.stringify(payload),
-      }).catch(() => {
-        // Submission saved to localStorage; endpoint can be synced later
-      });
+      }).catch(() => { /* saved to localStorage; sync later */ });
 
       setDone(true);
     } else {
