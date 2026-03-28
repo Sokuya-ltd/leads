@@ -5,21 +5,25 @@
 }
 
 :root {
-  --olive: #3a5a2a;
-  --olive-mid: #4a7a35;
-  --green-bg: #4a6741;
-  --green-dark: #2d4a1e;
-  --orange: #e8712a;
-  --orange-hover: #f0892a;
-  --orange-pale: #fef0e6;
-  --cream: #fafaf7;
-  --white: #ffffff;
-  --black: #1a1a18;
-  --gray: #6b6b60;
-  --gray-light: #f4f4ef;
-  --border: rgba(0, 0, 0, 0.08);
-  --gold: #f5c842;
-  --font: 'Plus Jakarta Sans', sans-serif;
+  --orange:       #F68E28;
+  --orange-hover: #e07d1a;
+  --orange-pale:  #fef3e3;
+  --orange-deep:  #c46e10;
+  --navy:         #242E3D;
+  --navy-light:   #2e3c50;
+  --navy-mid:     #1a2230;
+  --green-bg:     #4a6741;
+  --black:        #1a1a18;
+  --white:        #FFFFFF;
+  --cream:        #fafaf7;
+  --gray:         #6b7280;
+  --gray-light:   #f5f5f3;
+  --border:       rgba(36,46,61,0.12);
+  --gold:         #f5c842;
+  --font-head:    'Nunito Sans', sans-serif;
+  --font-body:    'Nunito', sans-serif;
+  /* legacy alias kept for Survey.css */
+  --font:         'Nunito', sans-serif;
 }
 
 html {
@@ -27,9 +31,9 @@ html {
 }
 
 body {
-  font-family: var(--font);
-  background: var(--cream);
-  color: var(--black);
+  font-family: var(--font-body);
+  background: var(--white);
+  color: var(--navy);
   overflow-x: hidden;
   line-height: 1.5;
 }

@@ -1,31 +1,30 @@
 import React, { useState, useEffect } from 'react';
 import './Navbar.css';
+import logo from '../logo.png';
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener('scroll', onScroll);
-    return () => window.removeEventListener('scroll', onScroll);
+    const fn = () => setScrolled(window.scrollY > 24);
+    window.addEventListener('scroll', fn);
+    return () => window.removeEventListener('scroll', fn);
   }, []);
 
   return (
-    <nav className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`}>
-      <div className="navbar__logo">
-        Suko<span>ya</span>
+    <nav className={`nav ${scrolled ? 'nav--scrolled' : ''}`}>
+      <div className="nav__brand">
+        <img src={logo} alt="Sokuya" className="nav__logo" />
       </div>
 
-      {/* <ul className="navbar__links">
-        <li><span className="navbar__dropdown">Inside Sukoya ▾</span></li>
-        <li><span className="navbar__dropdown">Partner Up ▾</span></li>
+      <ul className="nav__links">
+        <li><span className="nav__drop">Inside Sokuya ▾</span></li>
+        <li><span className="nav__drop">Partner Up ▾</span></li>
         <li><a href="#how">Marketplace</a></li>
-        <li><span className="navbar__dropdown">Help Hub ▾</span></li>
-      </ul> */}
+        <li><span className="nav__drop">Help Hub ▾</span></li>
+      </ul>
 
-      <a href="#survey" className="navbar__cta">
-        Download App ↗
-      </a>
+      <a href="#survey" className="nav__cta">Download App ↗</a>
     </nav>
   );
 }

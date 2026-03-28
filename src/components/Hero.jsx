@@ -1,14 +1,16 @@
 import React from 'react';
 import './Hero.css';
+import logo from '../logo.png';
+import blobBg from '../hero_icon-wrap.jpg';
 
 function FloatCard({ emoji, name, price, stars, className }) {
   return (
-    <div className={`float-card ${className}`}>
-      <div className="float-card__img">{emoji}</div>
-      <div className="float-card__info">
-        <div className="float-card__name">{name}</div>
-        <div className="float-card__stars">{'★'.repeat(stars)}{'☆'.repeat(5 - stars)}</div>
-        <div className="float-card__price">£{price}</div>
+    <div className={`fcard ${className}`}>
+      <div className="fcard__img">{emoji}</div>
+      <div className="fcard__body">
+        <p className="fcard__name">{name}</p>
+        <p className="fcard__stars">{'★'.repeat(stars)}{'☆'.repeat(5 - stars)}</p>
+        <p className="fcard__price">£{price}</p>
       </div>
     </div>
   );
@@ -24,11 +26,10 @@ export default function Hero() {
           🌍 Made for students &amp; the diaspora · Leicester
         </div>
 
-        <h1 className="hero__title">
-          Craving the<br />
-          <span className="hero__title--orange">Taste of Home?</span><br />
-          We Deliver It to<br />
-          Your Door.
+        <h1 className="hero__h1">
+          Craving the<br/>
+          <span className="hero__h1--orange">Taste of Home?</span><br/>
+          We Deliver It to<br/>Your Door.
         </h1>
 
         <p className="hero__sub">
@@ -37,12 +38,12 @@ export default function Hero() {
           straight to your door. No car. No heavy bags. No compromise.
         </p>
 
-        <div className="hero__actions">
-          <a href="#survey" className="btn-orange">
+        <div className="hero__btns">
+          <a href="#survey" className="hero__btn-primary">
             Download App
-            <span className="btn-orange__arrow">↗</span>
+            <span className="hero__btn-arrow">↗</span>
           </a>
-          <a href="#how" className="btn-outline">Get Started</a>
+          <a href="#how" className="hero__btn-secondary">Get Started</a>
         </div>
 
         <div className="hero__how">
@@ -65,16 +66,16 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="courier-card">
-          <div className="courier-card__avatar">
-            RW
-            <span className="courier-card__status" />
+        {/* Courier pill */}
+        <div className="courier">
+          <div className="courier__avatar">
+            RW<span className="courier__dot"/>
           </div>
-          <div className="courier-card__info">
-            <span className="courier-card__name">Richard Watson</span>
-            <span className="courier-card__role">Food Courier</span>
+          <div className="courier__info">
+            <span className="courier__name">Richard Watson</span>
+            <span className="courier__role">Food Courier</span>
           </div>
-          <div className="courier-card__call">📞</div>
+          <div className="courier__call">📞</div>
         </div>
 
         <div className="hero__stats">
@@ -105,27 +106,14 @@ export default function Hero() {
 
       {/* RIGHT */}
       <div className="hero__right">
-        <div className="hero__blob" />
-
+        <div className="hero__blob" style={{ backgroundImage: `url(${blobBg})` }}/>
+        <div className="hero__icon-wrap">
+          <img src={logo} alt="Sokuya" className="hero__icon-logo" />
+        </div>
         <div className="hero__deco-clock">🕐</div>
         <div className="hero__deco-fire">🔥</div>
-
-        {/* <div className="hero__food-circle" /> */}
-
-        <FloatCard
-          emoji="🐟"
-          name="Dry Fish"
-          price="7.49"
-          stars={5}
-          className="float-card--top"
-        />
-        <FloatCard
-          emoji="🍠"
-          name="Yam"
-          price="12.60"
-          stars={4}
-          className="float-card--bottom"
-        />
+        <FloatCard emoji="🐟" name="Dry Fish"  price="7.49"  stars={5} className="fcard--a"/>
+        <FloatCard emoji="🍠" name="Yam"       price="12.60" stars={4} className="fcard--b"/>
       </div>
     </section>
   );
