@@ -1,4 +1,6 @@
 import React from 'react';
+import { SpeedInsights } from '@vercel/speed-insights/react';
+import { Analytics } from '@vercel/analytics/react';
 import './styles/global.css';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
@@ -14,6 +16,8 @@ export default function App() {
       <WhatWeServe />
       <Survey />
       <Footer />
+      <SpeedInsights />
+      <Analytics />
     </>
   );
 }
