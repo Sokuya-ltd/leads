@@ -17,14 +17,14 @@ export default function Navbar() {
         <img src={logo} alt="Sokuya" className="nav__logo" />
       </div>
 
-      <ul className="nav__links">
+      {/* <ul className="nav__links">
         <li><span className="nav__drop">Inside Sokuya ▾</span></li>
         <li><span className="nav__drop">Partner Up ▾</span></li>
         <li><a href="#how">Marketplace</a></li>
         <li><span className="nav__drop">Help Hub ▾</span></li>
       </ul>
 
-      <a href="#survey" className="nav__cta">Download App ↗</a>
+      <a href="#survey" className="nav__cta">Download App ↗</a> */}
     </nav>
   );
 }
