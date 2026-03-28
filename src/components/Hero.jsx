@@ -39,10 +39,10 @@ export default function Hero() {
         </p>
 
         <div className="hero__btns">
-          <a href="#survey" className="hero__btn-primary">
+          {/* <a href="#survey" className="hero__btn-primary">
             Download App
             <span className="hero__btn-arrow">↗</span>
-          </a>
+          </a> */}
           <a href="#how" className="hero__btn-secondary">Get Started</a>
         </div>
 
